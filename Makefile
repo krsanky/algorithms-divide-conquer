@@ -1,10 +1,14 @@
 CSC=		/usr/local/bin/csc5
-CSCFLAGS+=	-static -L
+CSCFLAGS+=	-static
+#CSCFLAGS+=	-L
 
 all: c1 
 
 c1: $@.o ccode.o 
 	${CSC} ${CSCFLAGS} $@.o ccode.o -o $@
+
+a1: $@.o 
+	${CSC} ${CSCFLAGS} $@.o -o $@
 
 # This is an implicit rule?
 #ccode.o: ccode.c
@@ -16,7 +20,8 @@ c1: $@.o ccode.o
 
 clean:
 	rm -f *.o *.so *.link *.import.scm *.out
-	rm -f c1
+	rm -f c1 
+	rm -f a1 
 
 .PHONY: clean all
 
