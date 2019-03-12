@@ -21,7 +21,11 @@
 		[fp (open-input-file fn)]
 		)
 		(print "do something with fp...")
-		(print (read fp)))
-
+		(print (read fp))
+		(close-input-port fp))
 	[(exn file) (print "file error")])
+#|
+(condition-case 
+	[(exn file) (print "file error")])
+|#
 
