@@ -1,31 +1,24 @@
-(import chicken.format chicken.condition)
+(import 
+	clojurian.syntax 
+	chicken.format 
+	chicken.condition)
 
 (define fn "input_1")
 
 (printf "assignmnet #1\n")
-(printf "reading in file ...\n")
-
-#|
-(exn i/o file) 
-
-(condition-case
-	[fp (open-input-file "input_1")])
-	(close-input-port fp))
-|#
 
 (define (get-2-numbers fp)
-	(print "get 2 number ..."))
+	(list (read fp) (read fp)))
+
+(define (big-mult l)
+	(printf "big mult:\n~a\n~a\n" (car l) (cadr l)))
 
 (condition-case 
-	(let* (
-		[fp (open-input-file fn)]
-		)
-		(print "do something with fp...")
-		(print (read fp))
-		(close-input-port fp))
+	(let* ([fp (open-input-file fn)])
+		(-> fp 
+			get-2-numbers 
+			big-mult)
+		(close-input-port fp)
+	)
 	[(exn file) (print "file error")])
-#|
-(condition-case 
-	[(exn file) (print "file error")])
-|#
 
