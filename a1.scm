@@ -25,7 +25,7 @@
 				get-2-numbers 
 				print-pass
 				s1
-;;( karatsuba-mult 
+;;				(as-> l (karatsuba-mult (car l) (cdr l)))
 				big-mult)
 			(close-input-port fp)
 		)

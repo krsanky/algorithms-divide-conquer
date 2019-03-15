@@ -1,17 +1,18 @@
-CSC=		/usr/local/bin/csc5
-#CSCFLAGS+=	-static #doesnt work when importing extensions that are *.so
-#CSCFLAGS+=	-L
+CSC=		csc
 
 all: c1 
 
 a1: $@.o 
 	${CSC} ${CSCFLAGS} $@.o -o $@
 
+cl1: $@.o
+	${CSC} ${CSCFLAGS} $@.o -o $@
+
 c1: $@.o ccode.o 
 	${CSC} ${CSCFLAGS} $@.o ccode.o -o $@
 # This is an implicit rule?
 #ccode.o: ccode.c
-#	cc -c ccode.c
+#	$(CC) -c ccode.c
 
 .SUFFIXES: .scm .o
 .scm.o:
