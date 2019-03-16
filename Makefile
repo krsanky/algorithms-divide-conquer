@@ -1,4 +1,5 @@
-CSC=		csc
+#CSC=		csc
+CSC=		/usr/local/bin/csc5
 
 all: c1 
 
@@ -22,6 +23,7 @@ clean:
 	rm -f *.o *.so *.link *.import.scm *.out
 	rm -f c1 
 	rm -f a1 
+	rm -f cl1 
 
 .PHONY: clean all
 
