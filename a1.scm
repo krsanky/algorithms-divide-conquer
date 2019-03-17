@@ -1,4 +1,6 @@
+(include "kats.scm")
 (import 
+	kats
 	srfi-71
 	clojurian.syntax 
 	chicken.format 
@@ -6,35 +8,23 @@
 
 (define (main)
 	(let (
-		[y 1234]
-		[x 5678])
-		(ktest1 x y)))
+			[x 5678]
+			[y 1234])
+;		(ktest1 x y)
+		(kmult x y)))
 
-;; 100 needs to be calculated somehow
-(define (split-num n)
-	(values 
-		(quotient n 100)
-		(remainder n 100)))
 
-(define (ktest1 n1 n2)
-	(let* (
-			(a b (split-num n1))
-			(c d (split-num n2))
-			(n 4)
-			(_10_n (expt 10 n))
-			(_10_n2 (expt 10 (/ n 2)))
-			(ac (* a c))
-			(bd (* b d))
-			(ad_bc (+ (* a d) (* b c))))
-		(printf "a:~a b:~a\n" a b)
-		(printf "c:~a d:~a\n" c d)
-		(printf "a*c:~a\n" ac)
-		(printf "b*d:~a\n" bd)
-		(printf "ad+bc:~a\n" ad_bc)
-		(printf "n=~a\n" n)
-		(printf "x*y=~a\n" (+ (* _10_n ac) (* ad_bc _10_n2) bd))
-	)
+(define (longest n1 n2)
+	(let ([sn1 (format "~a" n1)] 
+		  [sn2 (format "~a" n2)])
+		(if (> (string-length sn2) (string-length sn1))
+			n2 n1)))
+
+(define (kmult n1 n2)
+	(printf "kmult: ~a ~a\n" n1 n2)
+	(printf "longest: ~a\n" (longest n1 n2))
 )
 
+	
 (main)
 
