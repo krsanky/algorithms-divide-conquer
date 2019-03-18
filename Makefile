@@ -1,5 +1,5 @@
-#CSC=		csc
-CSC=		/usr/local/bin/csc5
+CSC=		csc
+#CSC=		/usr/local/bin/csc5
 
 all: c1 a1 imp cl1
 
