@@ -1,4 +1,4 @@
-(module kats (ktest1)
+(module karats (ktest1)
 	(import scheme srfi-71 chicken.format)
 
 (define (split-num n)
