@@ -3,13 +3,13 @@ CSC=		csc
 
 all: c1 a1 imp cl1
 
-a1: $@.o kats.scm
+a1: $@.o karats.scm
 	${CSC} ${CSCFLAGS} $@.o -o $@
 
 cl1: $@.o
 	${CSC} ${CSCFLAGS} $@.o -o $@
 
-imp: $@.o kats.scm
+imp: $@.o karats.scm
 	${CSC} ${CSCFLAGS} $@.o -o $@
 
 c1: $@.o ccode.o 
@@ -27,7 +27,7 @@ clean:
 	rm -f c1 
 	rm -f a1 
 	rm -f cl1 
-	rm -f imp 
+	rm -f imp call-cc
 
 .PHONY: clean all
 

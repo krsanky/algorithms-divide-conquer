@@ -1,3 +1,3 @@
-(include "kats.scm")
-(import kats chicken.format)
+(include "karats.scm")
+(import karats chicken.format)
 (printf "imp...\n")

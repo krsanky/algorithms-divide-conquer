@@ -1,30 +1,22 @@
-(include "kats.scm")
+(include "karats.scm")
 (import 
-	kats
-	srfi-71
-	clojurian.syntax 
-	chicken.format 
-	chicken.condition)
+	karats
+	chicken.format)
 
 (define (main)
 	(let (
 			[x 5678]
 			[y 1234])
 ;		(ktest1 x y)
-		(kmult x y)))
-
-
-(define (longest n1 n2)
-	(let ([sn1 (format "~a" n1)] 
-		  [sn2 (format "~a" n2)])
-		(if (> (string-length sn2) (string-length sn1))
-			n2 n1)))
-
-(define (kmult n1 n2)
-	(printf "kmult: ~a ~a\n" n1 n2)
-	(printf "longest: ~a\n" (longest n1 n2))
+		(printf "longest:~a\n" (longest x y))
+		(printf "longest:~a\n" (longest y x))
+		(kmult x y)
+		(printf "get-n x y :~a\n" (get-n x y))
+		(printf "get-n 23100 2300 :~a\n" (get-n 23100 2300))
+		(printf "get-n 3100 72300 :~a\n" (get-n 3100 72300))
+		(printf "get-n 2310026 39723001 :~a\n" (get-n 2310026 39723001))
+	)
 )
-
 	
 (main)
 
